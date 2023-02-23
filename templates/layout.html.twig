@@ -1,33 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<head>
-    header
-</head>
 <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
         <ul class="app-menu">
             <li>
-                <a class="app-menu__item {{ current_route is same as 'main_dashboard' ? 'active' }}" href="{{ path('main_homepage') }}">
+                <a class="app-menu__item {{ current_route is same as 'main_homepage' ? 'active' }}" href="{{ path('main_homepage') }}">
                     <i class="app-menu__icon fa fa-home"></i>
                     <span class="app-menu__label">Home</span>
                 </a>
             </li>
             <li>
-                <a class="app-menu__item {{ current_route is same as 'list_projects' ? 'active' }}" href="">
+                <a class="app-menu__item {{ current_route is same as 'projects_page' ? 'active' }}" href="{{ path('projects_page') }}">
                     <i class="app-menu__icon fa fa-laptop"></i>
-                    <span class="app-menu__label">Projets</span>
+                    <span class="app-menu__label">Projects</span>
                 </a>
             </li>
             <li>
-                <a class="app-menu__item {{ current_route is same as 'list_workers' ? 'active' }}" href="">
+                <a class="app-menu__item {{ current_route is same as 'education_page' ? 'active' }}" href="{{ path('education_page') }}">
                     <i class="app-menu__icon fa fa-building"></i>
                     <span class="app-menu__label">Education</span>
                 </a>
             </li>
             <li>
-                <a class="app-menu__item {{ current_route is same as 'list_jobs' ? 'active' }}" href="">
+                <a class="app-menu__item {{ current_route is same as 'experiences_page' ? 'active' }}" href="{{ path('experiences_page') }}">
                     <i class="app-menu__icon fa fa-book"></i>
                     <span class="app-menu__label">Experiences</span>
                 </a>

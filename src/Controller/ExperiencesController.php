@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MainController extends AbstractController{
+class ExperiencesController extends AbstractController{
 
-    #[Route('/', name: 'main_homepage')]
+    #[Route('/experiences', name: 'experiences_page')]
     public function index(): Response
     {        
-        return $this->render('main/home.html.twig', [
-            'current_route' => 'main_homepage'
+        return $this->render('main/experiences.html.twig', [
+            'current_route' => 'experiences_page'
         ]);
     }
 }
