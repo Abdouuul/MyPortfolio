@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<head>
+    header
+</head>
+<!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <ul class="app-menu">
+            <li>
+                <a class="app-menu__item {{ current_route is same as 'main_dashboard' ? 'active' }}" href="{{ path('main_homepage') }}">
+                    <i class="app-menu__icon fa fa-home"></i>
+                    <span class="app-menu__label">Home</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item {{ current_route is same as 'list_projects' ? 'active' }}" href="">
+                    <i class="app-menu__icon fa fa-laptop"></i>
+                    <span class="app-menu__label">Projets</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item {{ current_route is same as 'list_workers' ? 'active' }}" href="">
+                    <i class="app-menu__icon fa fa-building"></i>
+                    <span class="app-menu__label">Education</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item {{ current_route is same as 'list_jobs' ? 'active' }}" href="">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Experiences</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+
+
+<!-- Main Content -->
+    <main class="app-content">
+        {% block main %}
+        {% endblock %}
+        <footer class="main-footer">
+            &copy; 2023 - Abdoul Alim
+        </footer>
+    </div>
+{% endblock %}
