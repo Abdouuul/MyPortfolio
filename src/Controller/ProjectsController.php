@@ -17,7 +17,7 @@ class ProjectsController extends AbstractController{
     }
 
     #[Route('/projects/{id}', name: 'projects_details_page')]
-    public function details(): Response
+    public function projectDetails(): Response
     {        
         return $this->render('details/projects-details.html.twig', [
             'current_route' => 'projects_details_page'

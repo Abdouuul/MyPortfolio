@@ -39,7 +39,7 @@ class Update {
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -49,7 +49,7 @@ class Update {
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId(?int $id)
     {
         $this->id = $id;
 
@@ -59,7 +59,7 @@ class Update {
     /**
      * Get the value of name
      */ 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -69,7 +69,7 @@ class Update {
      *
      * @return  self
      */ 
-    public function setName($name)
+    public function setName(?string $name)
     {
         $this->name = $name;
 
@@ -79,7 +79,7 @@ class Update {
     /**
      * Get the value of project
      */ 
-    public function getProject()
+    public function getProject(): ?Project
     {
         return $this->project;
     }
@@ -89,7 +89,7 @@ class Update {
      *
      * @return  self
      */ 
-    public function setProject($project)
+    public function setProject(Project $project)
     {
         $this->project = $project;
 
@@ -99,7 +99,7 @@ class Update {
     /**
      * Get the value of createdAt
      */ 
-    public function getCreatedAt()
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -109,7 +109,7 @@ class Update {
      *
      * @return  self
      */ 
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTimeInterface $createdAt)
     {
         $this->createdAt = $createdAt;
 

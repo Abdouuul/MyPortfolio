@@ -199,8 +199,9 @@ class Project {
 
     /**
      * Get the value of updates
+     * @return Collection|Update[]
      */ 
-    public function getUpdates()
+    public function getUpdates(): Collection
     {
         return $this->updates;
     }
@@ -210,10 +211,11 @@ class Project {
      *
      * @return  self
      */ 
-    public function setUpdates($updates)
+    public function addUpdate(Update $update)
     {
-        $this->updates = $updates;
-
-        return $this;
+        if(!$this->updates->contains($update)){
+            $this->updates[] = $update;
+            $update->setProject($this);
+        }
     }
 }
