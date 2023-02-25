@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,7 +10,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
  * @ORM\Table(name="app_project")
  */
-class Project {
+class Project 
+{
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -27,7 +27,7 @@ class Project {
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="please enter the name of the project")
+     * @Assert\NotBlank(message="please enter the description of the project")
      */
     private $description;
 
@@ -42,7 +42,7 @@ class Project {
     private $startDate;
 
     /**
-     * @ORM\Column(type="datetime" nullable="true")
+     * @ORM\Column(type="datetime", nullable="true")
      */
     private $endDate;
 

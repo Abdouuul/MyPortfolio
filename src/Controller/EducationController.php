@@ -6,7 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class EducationController extends AbstractController{
+class EducationController extends AbstractController
+{
 
     #[Route('/education', name: 'education_page')]
     public function index(): Response

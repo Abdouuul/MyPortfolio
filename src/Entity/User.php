@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Entity;
-
-class User {
+//Not used yet
+class User 
+{
     private $id;
     private $username;
     private $name;

@@ -12,7 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="app_updates")
  */
 
-class Update {
+class Update 
+{
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
