@@ -6,6 +6,7 @@
 parameters:
     app.local: 'fr'
     app.email_address.contact: 'abdoulalim.idlbi@gmail.com'
+    images_directory: '%kernel.project_dir%/public/uploads/projectImages'
 services:
     # default configuration for services in *this* file
     _defaults:

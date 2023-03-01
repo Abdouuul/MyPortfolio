@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -56,6 +58,19 @@ class Project
      */
     private $updates;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ProjectImages::class, mappedBy="project", orphanRemoval=true, cascade={"persist"})
+     */
+    private $images;
+
+    private $uploadedFiles;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+        $this->images = new ArrayCollection();
+    }
+      
 
     /**
      * Get the value of id
@@ -207,9 +222,8 @@ class Project
     }
 
     /**
-     * Set the value of updates
+     * add an update to Project
      *
-     * @return  self
      */ 
     public function addUpdate(Update $update)
     {
@@ -217,5 +231,50 @@ class Project
             $this->updates[] = $update;
             $update->setProject($this);
         }
+    }   
+
+    /**
+     * Get the value of images
+     * @return Collection|ProjectImages[]
+     */ 
+    public function getImages(): ?Collection
+    {
+        return $this->images;
     }
+
+    /**
+     * Set the value of images
+     *
+     * @return  self
+     */ 
+    public function addImages(ProjectImages $image): self
+    {
+        if(!$this->images->contains($image)){
+            $this->images[] = $image;
+            $image->setProject($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of uploadedFiles
+     */ 
+    public function getUploadedFiles(): ?array
+    {
+        return $this->uploadedFiles;
+    }
+    
+    /**
+     * Set the value of uploadedFiles
+     *
+     * @return  self
+     */ 
+    public function setUploadedFiles(?array $uploadedFiles)
+    {
+        $this->uploadedFiles = $uploadedFiles;
+
+        return $this;
+    }   
+    
 }

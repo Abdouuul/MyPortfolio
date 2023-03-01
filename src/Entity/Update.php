@@ -28,6 +28,12 @@ class Update
     private $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="please enter the description of the update")
+     */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="updates")
      */
     private $project;
@@ -76,7 +82,26 @@ class Update
 
         return $this;
     }
+    
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
 
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription(?string $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
     /**
      * Get the value of project
      */ 
@@ -116,4 +141,5 @@ class Update
 
         return $this;
     }
+
 }
