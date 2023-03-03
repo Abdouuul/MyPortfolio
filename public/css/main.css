@@ -12192,6 +12192,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   margin-bottom: 0;
 }
 
+
 .page-error h1 {
   margin: 10px;
   color: #dc3545;
@@ -12199,20 +12200,36 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
 }
 
 .details-table {
-  width: 35%;
+  width: 400px; 
+  border-radius: 20px;
+}
+
+table, th, td{
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  border-collapse: collapse;
+}
+th{
+  text-align: center;
 }
 
 .details-table th {
-  width: 25%;
+  width: 25%;  
+}
+
+.details-table{
+  width: 400px;
+  height: 400px;
 }
 
 .carousel {
+  display: grid;
+  place-items: center;
   margin-bottom: 5%;
 }
 
 .carousel-inner {
-  width: 70%;
-  margin: 0 auto;
+  width: 60%;
   border-radius: 5px;
 }
 
@@ -12226,4 +12243,80 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
+}
+
+.details-section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.updates {
+  width: 400px;
+  height: 400px;
+}
+
+.updates-container{
+  height: 200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.update-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-type-indicator-feature{
+  width: 70px;
+  text-align: center;
+  background-color: #FEC45F;
+  padding: 1px;
+  border-radius: 5px;
+}
+.update-type-indicator-fix{
+  width: 70px;
+  text-align: center;
+  background-color: #FE6B5F;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.update-type-indicator-update{
+  width: 70px;
+  text-align: center;
+  background-color: #5FFE6B;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.update-type-indicator-modif{
+  width: 70px;
+  text-align: center;
+  background-color: #5FB1FE;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.update-date{  
+  padding: 1px;
+}
+
+.update-details{
+  height: 30px;
+  padding: 1px;
+}
+
+.update-container-title{
+  font-weight: 1000;
+  font-size: large;
+  padding: 2px;
+}
+
+.inner-update-container {
+  padding: 3px;
+  border: 0.01mm solid;
+  border-radius: 5px;
+  border-color: #dee2e6;
 }

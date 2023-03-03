@@ -4,53 +4,14 @@
 
 {% block main %}
     <h1>Project : {{ project.name }}</h1>
-
-    <table class="table details-table table-bordered table-dark">
-        <caption>Project Details</caption>
-        <thead>
-            <tr>
-            <th colspan="1" scope="col">#</th>
-            <td colspan="3" scope="col">{{ project.id }}</td>                 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="col">Name</th>
-            <td scope="row">{{ project.name }}</td>            
-            </tr>
-
-            <tr>
-            <th scope="col">Description</th>
-            <td scope="row">{{ project.description}}</td>            
-            </tr>
-
-            <tr>
-            <th scope="col">Creation date</th>
-            <td scope="row">{{ project.createdAt|date("D, F, Y") }}</td>            
-            </tr>
-
-            <tr>
-            <th scope="col">Updates Amount</th>
-            <td scope="row">{{ project.updates | length}}</td>            
-            </tr>
-
-            <tr>
-            <th scope="col">Last Update</th>
-            <td scope="row"></td>            
-            </tr>
-
-            <tr>
-            <th scope="col">Github Repository</th>            
-            <td scope="row">
-                {% if project.gitLink %}
-                    <a href="{{ project.gitLink }}">Github</a>
-                {% endif %}
-            </td>
-            </tr>
-
-        </tbody>
-    </table>
-
+    <div class="details-section">
+        <div>
+            {{ include('details/_detailsTable.html.twig') }}
+        </div>
+        <div>
+            {{ include('details/_recentUpdates.html.twig') }}
+        </div>
+    </div>    
 
     
     <div id="Carousel" class="carousel slide" data-ride="carousel">        

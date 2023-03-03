@@ -1,0 +1,40 @@
+<table class="details-table">
+    <caption>Project Details</caption>
+    <thead>
+        <tr>
+        <th colspan="1" scope="col">#</th>
+        <td colspan="3" scope="col">{{ project.id }}</td>                 
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="col">Name</th>
+        <td scope="row">{{ project.name }}</td>            
+        </tr>
+
+        <tr>
+        <th scope="col">Description</th>
+        <td scope="row">{{ project.description}}</td>            
+        </tr>
+
+        <tr>
+        <th scope="col">Creation date</th>
+        <td scope="row">{{ project.createdAt | date("D, F, Y") }}</td>            
+        </tr>
+
+        <tr>
+        <th scope="col">Updates Amount</th>
+        <td scope="row">{{ project.updates | length}}</td>            
+        </tr>        
+
+        {% if project.gitLink %}
+            <tr>
+                <th scope="col">Github Repository</th>            
+                <td scope="row">
+                        <a href="{{ project.gitLink }}">Github</a>
+                </td>
+            </tr>
+        {% endif %}
+
+    </tbody>
+</table>
