@@ -1,8 +1,34 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}My Portfolio - Abdoul Alim{% endblock %}
+{% block title %}My Portfolio - Abdoul Alim
+{% endblock %}
 
 
 {% block main %}
-    home page
+	<div class="main-app-home-layout">
+		<div class="app-intro-section">
+			{{ include('components/_developper-resume-section.html.twig') }}
+			<div class="developper-info">
+				<div class="developper-info">
+					<div class="dev-info-section-name">
+						Softwares and IDE
+					</div>	
+				</div>
+			</div>
+
+			<div class="developper-info">
+				<div class="developper-info">
+					<div class="dev-info-section-name">
+						Languages and Frameworks
+					</div>	
+				</div>
+			</div>
+
+		</div>
+
+		{{ include('components/_recent-projects-section.html.twig') }}
+
+		{{ include('components/_recent-updates-section.html.twig') }}
+
+	</div>
 {% endblock %}

@@ -32,9 +32,12 @@ class ProjectsController extends AbstractController
 
     #[Route('/projects', name: 'projects_page')]
     public function index(): Response
-    {
+    {   
+        $projects = $this->projectRepository->getAllProjectWithDetails();
+
         return $this->render('main/projects.html.twig', [
-            'current_route' => 'projects_page'
+            'current_route' => 'projects_page',
+            'projects' => $projects
         ]);
     }
 

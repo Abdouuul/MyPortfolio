@@ -19,14 +19,14 @@ class ProjectType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Project name',
-                'required' => 'true',
+                'required' => true,
             ])
             ->add('description', TextType::class, [
                 'label' => 'Project Description',
             ])
             ->add('gitlink', TextType::class, [
                 'label' => 'Project github link',
-                'required' => 'false'                
+                'required' => false                
             ])
             ->add('startDate', DateType::class, [
                 'label' => 'Start Date',
@@ -35,11 +35,13 @@ class ProjectType extends AbstractType
             ->add('endDate', DateType::class, [
                 'label' => 'End Date',
                 'widget' => 'single_text',
+                'required' => false  
             ])
             ->add('uploadedFiles', FileType::class, [
                 'label' => 'Add Images',
+                'required' => false,
                 'data_class' => null,   
-                'multiple' => 'true',             
+                'multiple' => true,             
                 'constraints' => [
                     new All([
                         new File ([

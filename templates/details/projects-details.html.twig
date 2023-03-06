@@ -1,35 +1,42 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Project n°{{ project.id }}{% endblock %}
+{% block title %}Project n°{{ project.id }}
+{% endblock %}
 
 {% block main %}
-    <h1>Project : {{ project.name }}</h1>
-    <div class="details-section">
-        <div>
-            {{ include('details/_detailsTable.html.twig') }}
-        </div>
-        <div>
-            {{ include('details/_recentUpdates.html.twig') }}
-        </div>
-    </div>    
+	<h1>
+		<i class="app-menu__icon fa fa-laptop"></i>
 
-    
-    <div id="Carousel" class="carousel slide" data-ride="carousel">        
-        <div class="project-photos carousel-inner">
-            {% for image in project.images %}                
-                <div class="carousel-item {{ loop.index is same as 1 ? 'active' }}">
-                    <img src="{{ asset( image.path ) }}" alt="slide {{ loop.index }}">
-                </div>        
-            {% endfor %}
+		{{ project.name }}
+	</h1>
 
-            <a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>        
-        </div>
-    </div>    
+	<div class="details-section">
+		<div>
+			{{ include('components/_detailsTable.html.twig') }}
+		</div>
+		<div>
+			{{ include('components/_recentUpdates.html.twig') }}
+		</div>
+	</div>
+
+	{% if project.images|length > 0 %}
+		<div id="Carousel" class="carousel slide" data-ride="carousel">
+			<div class="project-photos carousel-inner">
+				{% for image in project.images %}
+					<div class="carousel-item {{ loop.index is same as 1 ? 'active' }}">
+						<img src="{{ asset( image.path ) }}" alt="slide {{ loop.index }}">
+					</div>
+				{% endfor %}
+
+				<a class="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#Carousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	{% endif %}
 {% endblock %}

@@ -184,7 +184,7 @@ class Project
      *
      * @return  self
      */ 
-    public function setEndDate(\DateTimeInterface $endDate)
+    public function setEndDate(?\DateTimeInterface $endDate)
     {
         $this->endDate = $endDate;
 

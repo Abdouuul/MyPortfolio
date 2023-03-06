@@ -3,8 +3,21 @@
 {% block title %}Projects{% endblock %}
 
 {% block main %}
-    Projects page
-
-    List of the projects
+    <div class="projects-page-main">    
+        {% for project in projects %}
+            <div class="project-card">
+                <div class="project-card-image">                    
+                    <img src="" alt="">
+                </div>
+                <div class="project-card-button">
+                    <div class="project-card-button-row">
+                        <a href="{{ path('projects_details_page', { 'id': project.id }) }}" class="">
+                            {{ project.name | upper }}
+                        </a> 
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
 

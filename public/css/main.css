@@ -51,7 +51,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: "Courier New", Courier, monospace;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -12192,7 +12192,6 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   margin-bottom: 0;
 }
 
-
 .page-error h1 {
   margin: 10px;
   color: #dc3545;
@@ -12200,26 +12199,28 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
 }
 
 .details-table {
-  width: 400px; 
+  width: 400px;
   border-radius: 20px;
 }
 
-table, th, td{
+table,
+th,
+td {
   padding: 10px;
-  border: 1px solid #dee2e6;
   border-collapse: collapse;
 }
-th{
+th {
   text-align: center;
 }
 
 .details-table th {
-  width: 25%;  
+  width: 25%;
 }
 
-.details-table{
+.details-table {
   width: 400px;
   height: 400px;
+  box-shadow: 5px 5px 10px lightgray;
 }
 
 .carousel {
@@ -12255,68 +12256,253 @@ th{
   height: 400px;
 }
 
-.updates-container{
-  height: 200px;
-  display:flex;
+.updates-container {
+  height: auto;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  overflow: hidden;
 }
 
-.update-header{
+.update-header {
   display: flex;
   justify-content: space-between;
 }
 
-.update-type-indicator-feature{
+.update-type-indicator-feature {
   width: 70px;
   text-align: center;
-  background-color: #FEC45F;
+  background-color: #fec45f;
   padding: 1px;
   border-radius: 5px;
 }
-.update-type-indicator-fix{
+.update-type-indicator-fix {
   width: 70px;
   text-align: center;
-  background-color: #FE6B5F;
-  padding: 1px;
-  border-radius: 5px;
-}
-
-.update-type-indicator-update{
-  width: 70px;
-  text-align: center;
-  background-color: #5FFE6B;
+  background-color: #fe6b5f;
   padding: 1px;
   border-radius: 5px;
 }
 
-.update-type-indicator-modif{
+.update-type-indicator-update {
   width: 70px;
   text-align: center;
-  background-color: #5FB1FE;
+  background-color: #5ffe6b;
   padding: 1px;
   border-radius: 5px;
 }
 
-.update-date{  
+.update-type-indicator-modif {
+  width: 70px;
+  text-align: center;
+  background-color: #5fb1fe;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.update-date {
   padding: 1px;
 }
 
-.update-details{
-  height: 30px;
+.update-details {
+  height: auto;
   padding: 1px;
 }
 
-.update-container-title{
+.update-container-title {
   font-weight: 1000;
   font-size: large;
   padding: 2px;
 }
 
 .inner-update-container {
+  height: auto;
   padding: 3px;
-  border: 0.01mm solid;
   border-radius: 5px;
-  border-color: #dee2e6;
+  box-shadow: 5px 5px 10px lightgray;
 }
+
+.main-app-home-layout {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 15px;
+}
+
+.app-recent-updates-section {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+.project-card {
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  background-color: var(--light);
+  position: relative;
+}
+  
+
+.project-update-indicator {
+  width: 70px;
+  text-align: center;
+  background-color: #575758;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+.app-recent-updates-container {
+  height: auto;
+}
+
+.app-recent-projects-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: auto;
+}
+
+.update-header-indecators {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.app-homepage-sections-title {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: large;
+  border-radius: 5px;
+  background-color: #007bff;
+  box-shadow: 5px 5px 10px lightgray;
+  color: white;
+}
+
+.recent-projects-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 630px;
+}
+
+.project-card-button {
+  position: absolute;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-card-button a {
+  padding: 5px 10px 5px 10px;
+  min-height: 30px;
+  max-height: 60px;
+  width: 150px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  outline-style: none;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid var(--blue);
+  box-shadow: inset 0 0 0 0 #54b3d6;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+.project-card-button-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.recently-update-indicator{
+  font-size: smaller;
+  font-weight: bold;
+}
+
+.project-card-button a:hover{
+  box-shadow: inset 200px 0 0 0 #54b3d6;
+  color: white;
+}
+
+.project-card-image {
+  position: absolute;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.projects-page-main{
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 15px;
+}
+
+.app-intro-section{
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  display: flex;
+  flex-direction: row;
+}
+
+.developper-info-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.developper-info-section-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.developper-photo{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; 
+}
+
+.developper-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.developper-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.developper-info-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dev-name{
+  font-weight: bolder;
+  font-size: large;
+}
+
+.resume-button{
+  text-decoration: none;  
+  box-shadow: 5px 5px 10px lightgray;
+  background-color: #298fc2;
+}
+
+

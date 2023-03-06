@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Repository;
 
@@ -14,16 +14,38 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Project[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 
- class ProjectRepository extends ServiceEntityRepository{
+class ProjectRepository extends ServiceEntityRepository
+{
     public function __construct(ManagerRegistry $managerRegistry)
     {
         parent::__construct($managerRegistry, Project::class);
     }
 
+    public function getAllProjectWithDetails(): ?array
+    {
+        $qb = $this
+            ->createQueryBuilder('p');
+        $this->addUpdates($qb);
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getAllRecentProjects()
+    {
+        $qb = $this
+            ->createQueryBuilder('p')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults(3);
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findOneWithDetails(int $id): ?Project
     {
-        $qb = $this->createQueryBuilder('project')
-            ->andWhere('project.id = :id')
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
             ->setParameter('id', $id);
         $this->addUpdates($qb);
         $this->addImages($qb);
@@ -32,15 +54,17 @@ use Doctrine\Persistence\ManagerRegistry;
             ->getOneOrNullResult();
     }
 
-    public function addUpdates(QueryBuilder $qb){
+    public function addUpdates(QueryBuilder $qb)
+    {
         $qb
-            ->addSelect('updates')
-            ->leftJoin('project.updates', 'updates');
+            ->addSelect('u')
+            ->leftJoin('p.updates', 'u');
     }
 
-    public function addImages(QueryBuilder $qb){
+    public function addImages(QueryBuilder $qb)
+    {
         $qb
-            ->addSelect('images')
-            ->leftJoin('project.images', 'images');
+            ->addSelect('im')
+            ->leftJoin('p.images', 'im');
     }
- }
+}

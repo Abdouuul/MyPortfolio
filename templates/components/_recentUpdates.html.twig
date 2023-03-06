@@ -1,0 +1,27 @@
+<div class="updates">
+    <div class="update-container-title">
+        Recent updates
+    </div>
+    <div class="updates-container">
+        {% if recentUpdates|length > 0 %}
+            {% for update in recentUpdates %}
+                <div class="inner-update-container">
+                    <div class="update-header">                
+                        <div class="update-date">
+                            {{ update.createdAt | date("m/y | G:i") }}
+                        </div>    
+                        
+                        <div class="update-type-indicator-{{ update.type | lower }}">
+                            {{ update.type }}
+                        </div>
+                    </div>
+                    <div class="update-details">
+                        {{ update.description }}
+                    </div>
+                </div>
+            {% endfor %} 
+        {% else %}
+            No Updates to this project yet!
+        {% endif %}   
+    </div>
+</div>
