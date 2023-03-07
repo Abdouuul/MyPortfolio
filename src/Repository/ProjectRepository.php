@@ -26,6 +26,7 @@ class ProjectRepository extends ServiceEntityRepository
         $qb = $this
             ->createQueryBuilder('p');
         $this->addUpdates($qb);
+        $this->addImages($qb);
         return $qb
             ->getQuery()
             ->getResult();

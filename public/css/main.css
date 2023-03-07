@@ -12214,17 +12214,23 @@ th {
 }
 
 .details-table th {
-  width: 25%;
+  width: 25%;  
 }
 
 .details-table {
-  width: 400px;
-  height: 400px;
+  width: 400px;  
+  min-height: 100px;
   box-shadow: 5px 5px 10px lightgray;
 }
 
+.details-table-div{
+  width: 400px;  
+  min-height: 100px;
+  padding: 5px;
+}
+
 .carousel {
-  display: grid;
+  display: flex;
   place-items: center;
   margin-bottom: 5%;
 }
@@ -12248,12 +12254,14 @@ th {
 
 .details-section {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .updates {
   width: 400px;
-  height: 400px;
+  min-height: 100px;
+  padding: 5px;
 }
 
 .updates-container {
@@ -12363,6 +12371,8 @@ th {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
   height: auto;
 }
 
@@ -12385,7 +12395,9 @@ th {
 .recent-projects-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 5px;
   width: 630px;
 }
 
@@ -12401,19 +12413,23 @@ th {
 }
 
 .project-card-button a {
-  padding: 5px 10px 5px 10px;
+  padding: 5px;
   min-height: 30px;
   max-height: 60px;
   width: 150px;
   text-align: center;
-  color: black;
+  color: white;
+  box-shadow: inset 200px 0 0 0 #80D779;
   font-weight: bold;
   outline-style: none;
   text-decoration: none;
   border-radius: 5px;
-  border: 1px solid var(--blue);
-  box-shadow: inset 0 0 0 0 #54b3d6;
-  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  
+  transition: padding .1s ease-in;
+}
+.project-card-button a:hover{
+  padding: 10px;
+  color: white;
 }
 
 .project-card-button-row{
@@ -12427,15 +12443,12 @@ th {
   font-weight: bold;
 }
 
-.project-card-button a:hover{
-  box-shadow: inset 200px 0 0 0 #54b3d6;
-  color: white;
-}
 
-.project-card-image {
+.project-card-image img{
   position: absolute;
   border-radius: 5px;
-  padding: 10px;
+  object-fit: cover;
+  filter: blur(1px);
   width: 100%;
   height: 100%;
 }
@@ -12443,16 +12456,21 @@ th {
 .projects-page-main{
   display: flex;
   flex-direction: row;
-  padding: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;  
+  padding: 10px;
+  height: auto;
   gap: 15px;
 }
 
 .app-intro-section{
-  height: 300px;
+  min-height: 300px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px lightgray;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .developper-info-section{
@@ -12483,8 +12501,7 @@ th {
 
 .developper-info{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column; 
   gap: 10px;
 }
 
@@ -12503,6 +12520,22 @@ th {
   text-decoration: none;  
   box-shadow: 5px 5px 10px lightgray;
   background-color: #298fc2;
+}
+
+.dev-info-section-name{
+  font-size: large;
+  font-weight: bolder;
+  padding: 0px 5px 0px 5px;
+}
+
+.dev-info-icons{
+  height: auto;  
+  flex-wrap: wrap;
+}
+
+.dev-info-icons img{
+  max-width: 60px;
+  border-radius: 10px;
 }
 
 
