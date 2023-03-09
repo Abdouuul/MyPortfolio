@@ -14,6 +14,7 @@ use Symfony\Component\Validator\Constraints\File;
 
 class ProjectType extends AbstractType
 {
+    //This form is not used anymore
     public function buildForm(FormBuilderInterface $builder, array $options): void 
     {
         $builder

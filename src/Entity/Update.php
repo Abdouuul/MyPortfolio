@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use App\Config\Types;
 
 /**
- * @ORM\Entity(repositoryClass=UpdateRepository::class)
+ * @ORM\Entity(repositoryClass=App\Repository\UpdateRepository::class)
  * @ORM\Table(name="app_updates")
  */
 
@@ -117,8 +117,8 @@ class Update
      * Get the value of type
      */
     public function getType(): ?String
-    {   
-        if($this->type){
+    {
+        if ($this->type) {
             return $this->type->toString();
         }
         return $this->type;

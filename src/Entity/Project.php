@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @ORM\Entity(repositoryClass=App\Repository\ProjectRepository::class)
  * @ORM\Table(name="app_project")
  */
 class Project 
@@ -276,4 +276,8 @@ class Project
         return $this;
     }   
     
+    public function __toString()
+    {
+        return $this->name;
+    }
 }

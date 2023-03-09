@@ -29,6 +29,8 @@ class MainController extends AbstractController
         $recentProjects = $this->projectRepository->getAllRecentProjects();
         $latestUpdatedProject = $this->updateRepository->getLatestUpdateWithDetails()->getProject();
 
+       
+
         return $this->render('main/home.html.twig', [
             'current_route' => 'main_homepage',
             'recentUpdates' => $recentUpdates,

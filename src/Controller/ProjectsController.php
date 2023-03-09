@@ -32,7 +32,7 @@ class ProjectsController extends AbstractController
 
     #[Route('/projects', name: 'projects_page')]
     public function index(): Response
-    {   
+    {
         $projects = $this->projectRepository->getAllProjectWithDetails();
 
         return $this->render('main/projects.html.twig', [
@@ -53,51 +53,6 @@ class ProjectsController extends AbstractController
             'current_route' => 'projects_details_page',
             'project' => $project,
             'recentUpdates' => $recentUpdates
-        ]);
-    }
-    #[Route('new/projects', name: 'projects_form_page')]
-    public function newProject(Request $request, SluggerInterface $slugger): Response
-    {
-        $project = new Project();
-        $form = $this->createForm(ProjectType::class, $project);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $uploadedFiles = $form->get('uploadedFiles')->getData();
-
-            foreach ($uploadedFiles as $uploadedFile) {
-                $image = new ProjectImages();
-                $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '-' . $project->getName() . '.' . $uploadedFile->guessExtension();
-
-                $path = 'uploads/projectImages/' . $newFilename;
-                $image
-                    ->setPath($path)
-                    ->setProject($project);
-                $this->em->persist($image);
-
-                try {
-                    $uploadedFile->move(
-                        $this->getParameter('images_directory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                    $e->getMessage();
-                    echo $e;
-                }
-            }
-
-            $this->em->persist($project);
-            $this->em->flush();
-
-            return $this->redirectToRoute('projects_page');
-        }
-
-        return $this->render('forms/project.html.twig', [
-            'current_route' => 'projects_form_page',
-            'form' => $form->createView()
         ]);
     }
 }

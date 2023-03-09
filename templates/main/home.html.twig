@@ -8,38 +8,8 @@
 	<div class="main-app-home-layout">
 		<div class="app-intro-section">
 			{{ include('components/_developper-resume-section.html.twig') }}
-			<div class="developper-info">
-				<div class="dev-info-section-name">
-					Softwares and IDE
-				</div>
-				<div class="dev-info-icons">
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" alt="vscode-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original-wordmark.svg" alt="phpstore-icon" />
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original-wordmark.svg" alt="intellij-icon"/>
-
-
-				</div>
-			</div>
-
-			<div class="developper-info">
-				<div class="dev-info-section-name">
-					Languages and Frameworks
-				</div>
-				<div class="dev-info-icons">
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" alt="html-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" alt="css-icon" />
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="angular-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="js-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="ts-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/symfony/symfony-original-wordmark.svg" alt="symfony-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt="react-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" alt="ionic-icon"/>
-					<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="flutter-icon"/>
-
-				</div>
-			</div>
-
+			
+			{{ include('components/_developper-info-section.html.twig') }}
 		</div>
 
 		{{ include('components/_recent-projects-section.html.twig') }}

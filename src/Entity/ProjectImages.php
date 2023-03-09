@@ -4,7 +4,7 @@ use App\Entity\Project;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ProjectImagesRepository::class)
+ * @ORM\Entity(repositoryClass=App\Repository\ProjectImagesRepository::class)
  * @ORM\Table(name="app_project_images")
  */
 
@@ -87,5 +87,10 @@ class ProjectImages
         $this->project = $project;
 
         return $this;
-    }    
+    }
+    
+    public function __toString(): string
+    {
+        return $this->path;
+    }
 }

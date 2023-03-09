@@ -12231,18 +12231,18 @@ th {
 
 .carousel {
   display: flex;
-  place-items: center;
+  justify-content: space-around; 
   margin-bottom: 5%;
 }
 
 .carousel-inner {
-  width: 60%;
   border-radius: 5px;
+  max-width: 1000px;
 }
 
 .carousel-item {
   width: 100%;
-  height: 500px;
+  height: 600px;
 }
 
 .project-photos img {
@@ -12529,13 +12529,33 @@ th {
 }
 
 .dev-info-icons{
-  height: auto;  
-  flex-wrap: wrap;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;  
 }
 
 .dev-info-icons img{
   max-width: 60px;
   border-radius: 10px;
+}
+
+.dev-info-icons-lang img{
+  max-width: 60px;
+  border-radius: 10px;
+}
+
+.dev-info-icons-software img{
+  max-width: 80px;
+  border-radius: 10px;
+}
+
+.about-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;  
+  flex-wrap: wrap;
 }
 
 

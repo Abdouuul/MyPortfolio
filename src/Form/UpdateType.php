@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UpdateType extends AbstractType
 {
-
+    //This form is not used anymore 
     public function __construct(
         private ProjectRepository $projectRepository
     ) {
