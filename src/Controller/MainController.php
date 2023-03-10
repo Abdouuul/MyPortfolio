@@ -27,7 +27,7 @@ class MainController extends AbstractController
     {
         $recentUpdates = $this->updateRepository->getLatestUpdatesWithAllDetails();
         $recentProjects = $this->projectRepository->getAllRecentProjects();
-        $latestUpdatedProject = $this->updateRepository->getLatestUpdateWithDetails()->getProject();
+        $latestUpdatedProject = $this->updateRepository->getLatestUpdateWithDetails()?->getProject();
 
        
 

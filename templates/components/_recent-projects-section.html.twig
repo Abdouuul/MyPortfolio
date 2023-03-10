@@ -9,7 +9,11 @@
 			<div class="recent-updated-project-card">
 				<div class="project-card">
 					<div class="project-card-image">
-						<img src="" alt="">
+						{% for image in latestUpdatedProject.images %}
+							{% if loop.first %}
+								<img src="{{ asset( image.path ) }}" alt="project{{latestUpdatedProject.id}}-img">
+							{% endif %}
+						{% endfor %}
 					</div>
 					<div class="project-card-button">
 						<div class="project-card-button-row">
@@ -29,7 +33,11 @@
 			{% for project in recentProjects %}
 				<div class="project-card">
 					<div class="project-card-image">
-						<img src="" alt="">
+						{% for image in project.images %}
+							{% if loop.first %}
+								<img src="{{ asset( image.path ) }}" alt="project{{project.id}}-img">
+							{% endif %}
+						{% endfor %}
 					</div>
 					<div class="project-card-button">
 						<div class="project-card-button-row">
