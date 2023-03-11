@@ -15,11 +15,11 @@ security:
       security: false
     main:
       lazy: true
-      provider: users_in_memory
-
+      provider: app_user_provider
       form_login:
         login_path: app_login
         check_path: app_login
+        default_target_path: main_homepage
         enable_csrf: true
         username_parameter: _email
 
