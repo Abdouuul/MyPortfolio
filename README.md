@@ -10,8 +10,7 @@ This is a personal project where I can display the different projects I'm workin
 ---
 
 ## Feature being added :
--   Admin/user system
--   EasyAdmin implementation
+-   Data Fixtures
 -   Design improvements
 
 ---
