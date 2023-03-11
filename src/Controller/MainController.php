@@ -33,6 +33,7 @@ class MainController extends AbstractController
 
         return $this->render('main/home.html.twig', [
             'current_route' => 'main_homepage',
+            'controller_name' => 'mainController',
             'recentUpdates' => $recentUpdates,
             'recentProjects' => $recentProjects,
             'latestUpdatedProject' => $latestUpdatedProject
@@ -44,6 +45,7 @@ class MainController extends AbstractController
     {
         return $this->render('main/about.html.twig', [
             'current_route' => 'about_page',
+            'controller_name' => 'mainController',
         ]);
     }
 }

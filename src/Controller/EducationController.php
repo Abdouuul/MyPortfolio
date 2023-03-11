@@ -13,7 +13,7 @@ class EducationController extends AbstractController
     public function index(): Response
     {        
         return $this->render('main/education.html.twig', [
-            'current_route' => 'education_page'
+            'current_route' => 'education_page',
         ]);
     }
 }

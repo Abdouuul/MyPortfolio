@@ -37,6 +37,7 @@ class ProjectsController extends AbstractController
 
         return $this->render('main/projects.html.twig', [
             'current_route' => 'projects_page',
+            'controller_name' => 'projectsController',
             'projects' => $projects
         ]);
     }
