@@ -1,0 +1,33 @@
+<div class="app-recent-updates-section">
+	<div class="app-homepage-sections-title">
+		<i class="app-menu__icon fa fa-refresh"></i>
+		Recent Updates
+	</div>
+	<div class="app-recent-updates-container">
+		{% for update in recentUpdates %}
+			<div class="inner-update-container">
+				<div class="update-header">
+					<div class="update-date">
+						{{ update.createdAt | date("m/y | G:i" , "Europe/Paris") }}
+					</div>
+
+					<div class="update-header-indecators">
+						<div class="project-update-indicator">
+							<i class="app-menu__icon fa fa-laptop"></i>
+							<a href="{{ path('projects_details_page', { 'id': update.project.id }) }}">
+								#{{ update.project.id }}
+							</a>
+						</div>
+
+						<div class="update-type-indicator-{{ update.type | lower }}">
+							{{ update.type }}
+						</div>
+					</div>
+				</div>
+				<div class="update-details">
+					{{ update.description }}
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</div>

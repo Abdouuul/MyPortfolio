@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Projects
+{% endblock %}
+
+{% block main %}
+	<div class="projects-page-main">
+		{% for project in projects %}
+			<div class="project-card">
+				<div class="project-card-image">
+					{% for image in project.images %}
+						{% if loop.first %}
+							<img src="{{ asset( image.path ) }}" alt="project{{project.id}}-img">
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="project-card-button">
+					<div class="project-card-button-row">
+						<a href="{{ path('projects_details_page', { 'id': project.id }) }}" class="">
+							{{ project.name | upper }}
+						</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

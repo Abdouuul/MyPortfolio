@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}My Portfolio - Abdoul Alim
+{% endblock %}
+
+
+{% block main %}
+	<div class="main-app-home-layout">
+		<div class="app-intro-section">
+			{{ include('components/_developper-resume-section.html.twig') }}
+			
+			{{ include('components/_developper-info-section.html.twig') }}
+		</div>
+
+		{{ include('components/_recent-projects-section.html.twig') }}
+
+		{{ include('components/_recent-updates-section.html.twig') }}
+
+	</div>
+{% endblock %}
