@@ -40,6 +40,7 @@ class RegistrationController extends AbstractController
             'current_controller' => 'registrationController',
             'current_route' => 'app_register',
             'form' => $form->createView(),
+            'loggedInUser' => null
         ]);
     }
 }

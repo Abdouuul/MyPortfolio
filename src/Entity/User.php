@@ -10,11 +10,16 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass=App\Repository\UserRepository::class)
  * @ORM\Table(name="app_user")
-*/
+ */
 
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+
+    public function __construct()
+    {
+        $this->roles[] = "ROLE_USER";
+    }
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -49,7 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId(?int $id)
     {
         $this->id = $id;
@@ -59,24 +64,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get value of email
-     */ 
+     */
     public function getEmail()
     {
         return $this->email;
     }
-    
+
     /**
      * Set value of email
      *
      * @return  self
-     */ 
+     */
     public function setEmail($email)
     {
         $this->email = $email;
-        
+
         return $this;
     }
-    
+
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
@@ -84,12 +89,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Get value of Roles
-     */ 
+     */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -98,7 +101,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set value of Roles
      *
      * @return  self
-     */ 
+     */
     public function setRoles(array $roles)
     {
         $this->roles = $roles;
@@ -106,9 +109,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function addRole(string $role): void
+    {
+        if ($role === "ROLE_ADMIN" && !in_array("ROLE_ADMIN", $this->roles)) {
+            $this->roles[] = "ROLE_ADMIN";
+        }
+    }
+
     /**
      * @return string the hashed password for this user
-     */ 
+     */
     public function getPassword(): string
     {
         return $this->password;
@@ -118,7 +128,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set value of password
      *
      * @return  self
-     */ 
+     */
     public function setPassword(string $password)
     {
         $this->password = $password;
@@ -131,6 +141,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
-
 }

@@ -38,7 +38,8 @@ class ProjectsController extends AbstractController
         return $this->render('main/projects.html.twig', [
             'current_route' => 'projects_page',
             'controller_name' => 'projectsController',
-            'projects' => $projects
+            'projects' => $projects,
+            'loggedInUser' => null
         ]);
     }
 
@@ -53,7 +54,8 @@ class ProjectsController extends AbstractController
         return $this->render('details/projects-details.html.twig', [
             'current_route' => 'projects_details_page',
             'project' => $project,
-            'recentUpdates' => $recentUpdates
+            'recentUpdates' => $recentUpdates,
+            'loggedInUser' => null
         ]);
     }
 }

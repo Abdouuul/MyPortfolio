@@ -22,6 +22,8 @@ security:
         default_target_path: main_homepage
         enable_csrf: true
         username_parameter: _email
+      logout:
+        path: app_logout
 
       # activate different ways to authenticate
       # https://symfony.com/doc/current/security.html#the-firewall
