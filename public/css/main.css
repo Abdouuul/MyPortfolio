@@ -12521,7 +12521,7 @@ th {
 }
 
 .resume-button {
-  text-decoration: none;
+  color: black;
   box-shadow: 5px 5px 10px lightgray;
   background-color: #298fc2;
 }
