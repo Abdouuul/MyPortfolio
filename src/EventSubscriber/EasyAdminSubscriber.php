@@ -37,15 +37,16 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         if (!$project instanceof Project) return;
 
         $uploadedFiles = $project->getUploadedFiles();
+        if ($uploadedFiles) {
+            foreach ($uploadedFiles as $uploadedFile) {
+                $image = new ProjectImages();
 
-        foreach ($uploadedFiles as $uploadedFile) { 
-            $image = new ProjectImages();           
-
-            $path = 'uploads/projectImages/' . $uploadedFile;
-            $image
-                ->setPath($path)
-                ->setProject($project);
-            $this->em->persist($image);            
+                $path = 'uploads/projectImages/' . $uploadedFile;
+                $image
+                    ->setPath($path)
+                    ->setProject($project);
+                $this->em->persist($image);
+            }
         }
     }
 }

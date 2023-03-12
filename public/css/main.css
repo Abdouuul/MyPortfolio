@@ -12214,24 +12214,24 @@ th {
 }
 
 .details-table th {
-  width: 25%;  
+  width: 25%;
 }
 
 .details-table {
-  width: 400px;  
+  width: 400px;
   min-height: 100px;
   box-shadow: 5px 5px 10px lightgray;
 }
 
-.details-table-div{
-  width: 400px;  
+.details-table-div {
+  width: 400px;
   min-height: 100px;
   padding: 5px;
 }
 
 .carousel {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   margin-bottom: 5%;
 }
 
@@ -12346,14 +12346,13 @@ th {
   margin-bottom: 20px;
 }
 .project-card {
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 350px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px lightgray;
   background-color: var(--light);
   position: relative;
 }
-  
 
 .project-update-indicator {
   width: 70px;
@@ -12419,32 +12418,37 @@ th {
   width: 150px;
   text-align: center;
   color: white;
-  box-shadow: inset 200px 0 0 0 #80D779;
+  box-shadow: inset 200px 0 0 0 #80d779;
   font-weight: bold;
   outline-style: none;
   text-decoration: none;
   border-radius: 5px;
-  
-  transition: padding .1s ease-in;
+
+  transition: padding 0.1s ease-in;
 }
-.project-card-button a:hover{
+.project-card-button a:hover {
   padding: 10px;
   color: white;
 }
 
-.project-card-button-row{
+.project-card-button-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.recently-update-indicator{
+.recently-update-indicator {
   font-size: smaller;
   font-weight: bold;
+  background-color: lightcoral;
+  border-radius: 5px;
+  min-height: 10px;
+  width: 120px;
+  margin: 10px;
+  text-align: center;
 }
 
-
-.project-card-image img{
+.project-card-image img {
   position: absolute;
   border-radius: 5px;
   object-fit: cover;
@@ -12453,17 +12457,17 @@ th {
   height: 100%;
 }
 
-.projects-page-main{
+.projects-page-main {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   padding: 10px;
   height: auto;
   gap: 15px;
 }
 
-.app-intro-section{
+.app-intro-section {
   min-height: 300px;
   border-radius: 5px;
   box-shadow: 5px 5px 10px lightgray;
@@ -12473,91 +12477,91 @@ th {
   justify-content: space-around;
 }
 
-.developper-info-section{
+.developper-info-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.developper-info-section-row{
+.developper-info-section-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 10px;
 }
 
-.developper-photo{
+.developper-photo {
   width: 200px;
   height: 200px;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
-.developper-photo img{
+.developper-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-.developper-info{
+.developper-info {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 10px;
 }
 
-.developper-info-row{
+.developper-info-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.dev-name{
+.dev-name {
   font-weight: bolder;
   font-size: large;
 }
 
-.resume-button{
-  text-decoration: none;  
+.resume-button {
+  text-decoration: none;
   box-shadow: 5px 5px 10px lightgray;
   background-color: #298fc2;
 }
 
-.dev-info-section-name{
+.dev-info-section-name {
   font-size: large;
   font-weight: bolder;
   padding: 0px 5px 0px 5px;
 }
 
-.dev-info-icons{
+.dev-info-icons {
   height: auto;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 
-.dev-info-icons img{
+.dev-info-icons img {
   max-width: 60px;
   border-radius: 10px;
 }
 
-.dev-info-icons-lang img{
+.dev-info-icons-lang img {
   max-width: 60px;
   border-radius: 10px;
 }
 
-.dev-info-icons-software img{
+.dev-info-icons-software img {
   max-width: 80px;
   border-radius: 10px;
 }
 
-.about-page{
+.about-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;  
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-.error{
+.error {
   color: red;
 }
