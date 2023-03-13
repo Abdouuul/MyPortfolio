@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\EnumType;
 
 class UpdateCrudController extends AbstractCrudController
 {
-
+    private array $UpdateChoices = ['Update', 'Fix', 'Modif', ''];
     public static function getEntityFqcn(): string
     {
         return Update::class;
@@ -31,21 +31,23 @@ class UpdateCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('description'),
             ChoiceField::new('type', 'Update Type')
-                ->hideOnIndex()                
-                ->setChoices(["Update Type" => Types::cases()])
-                ->setFormType(EnumType::class)
-                ->setFormTypeOption('class', Types::class)
-                ->setFormTypeOption('choice_label', function (Types $type) {
-                    return $type->value;
-                }),
-            ChoiceField::new('type', 'Update Type')
-                ->hideOnForm()                
-                ->setChoices(Types::cases())
-                ->setFormType(EnumType::class)
-                ->setFormTypeOption('class', Types::class)
-                ->setFormTypeOption('choice_label', function (Types $type) {
-                    return $type->value;
-                }),
+                ->setChoices(self::$UpdateChoices)
+            // ChoiceField::new('type', 'Update Type')
+            //     ->hideOnIndex()                
+            //     ->setChoices(["Update Type" => Types::cases()])
+            //     ->setFormType(EnumType::class)
+            //     ->setFormTypeOption('class', Types::class)
+            //     ->setFormTypeOption('choice_label', function (Types $type) {
+            //         return $type->value;
+            //     }),
+            // ChoiceField::new('type', 'Update Type')
+            //     ->hideOnForm()                
+            //     ->setChoices(Types::cases())
+            //     ->setFormType(EnumType::class)
+            //     ->setFormTypeOption('class', Types::class)
+            //     ->setFormTypeOption('choice_label', function (Types $type) {
+            //         return $type->value;
+            //     }),
 
 
         ];
