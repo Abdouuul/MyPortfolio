@@ -2,13 +2,12 @@
 
 namespace App\Controller\Admin;
 
-use App\Config\Types;
-use App\Entity\Project;
 use App\Entity\Update;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -16,7 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\EnumType;
 
 class UpdateCrudController extends AbstractCrudController
 {
-    private array $UpdateChoices = ['Update', 'Fix', 'Modif', ''];
     public static function getEntityFqcn(): string
     {
         return Update::class;
@@ -31,25 +29,13 @@ class UpdateCrudController extends AbstractCrudController
             TextField::new('name'),
             TextField::new('description'),
             ChoiceField::new('type', 'Update Type')
-                ->setChoices(self::$UpdateChoices)
-            // ChoiceField::new('type', 'Update Type')
-            //     ->hideOnIndex()                
-            //     ->setChoices(["Update Type" => Types::cases()])
-            //     ->setFormType(EnumType::class)
-            //     ->setFormTypeOption('class', Types::class)
-            //     ->setFormTypeOption('choice_label', function (Types $type) {
-            //         return $type->value;
-            //     }),
-            // ChoiceField::new('type', 'Update Type')
-            //     ->hideOnForm()                
-            //     ->setChoices(Types::cases())
-            //     ->setFormType(EnumType::class)
-            //     ->setFormTypeOption('class', Types::class)
-            //     ->setFormTypeOption('choice_label', function (Types $type) {
-            //         return $type->value;
-            //     }),
-
-
+                ->setChoices([
+                    'Update' => 'Update',
+                    'Fix' => 'Fix',
+                    'Modif' => 'Modif',
+                    'Feature' => 'Feature'
+                ]),
+            DateField::new('createdAt')->hideOnForm(),
         ];
     }
 

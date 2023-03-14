@@ -32,16 +32,14 @@ class ProjectRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function getAllRecentProjects()
+    public function getAllRecentProjects(): ?array
     {
         $qb = $this
             ->createQueryBuilder('p')
             ->orderBy('p.createdAt', 'DESC')
             ->setMaxResults(3);
         $this->addImages($qb);
-        return $qb
-            ->getQuery()
-            ->getResult();
+        return $qb->getQuery()->getResult();
     }
 
     public function findOneWithDetails(int $id): ?Project

@@ -12345,14 +12345,6 @@ th {
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
-.project-card {
-  width: 300px;
-  height: 350px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px lightgray;
-  background-color: var(--light);
-  position: relative;
-}
 
 .project-update-indicator {
   width: 70px;
@@ -12396,8 +12388,16 @@ th {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 5px;
-  width: 630px;
+  gap: 10px;
+}
+
+.project-card {
+  width: 300px;
+  height: 350px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  background-color: var(--light);
+  position: relative;
 }
 
 .project-card-button {
@@ -12411,6 +12411,23 @@ th {
   justify-content: center;
 }
 
+.recent-project-card {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  background-color: var(--light);
+  position: relative;
+}
+
+.project-card-image img {
+  position: absolute;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: blur(1px);
+  width: 100%;
+  height: 100%;
+}
 .project-card-button a {
   padding: 5px;
   min-height: 30px;
@@ -12448,33 +12465,50 @@ th {
   text-align: center;
 }
 
-.project-card-image img {
-  position: absolute;
-  border-radius: 5px;
-  object-fit: cover;
-  filter: blur(1px);
-  width: 100%;
-  height: 100%;
-}
-
 .projects-page-main {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 10px;
   height: auto;
   gap: 15px;
 }
 
-.app-intro-section {
-  min-height: 300px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px lightgray;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+@media (max-width: 1163px) {
+  .app-intro-section {
+    min-height: 300px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-intro-section {
+    min-height: 300px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1164px) {
+  .app-intro-section {
+    min-height: 300px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 
 .developper-info-section {
@@ -12500,12 +12534,14 @@ th {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 
 .developper-info {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 300px;
   gap: 10px;
 }
 
@@ -12564,4 +12600,64 @@ th {
 
 .error {
   color: red;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.skill-image {
+  max-width: 60px;
+  border-radius: 10px;
+}
+
+.skill-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.skill-name {
+  font-size: medium;
+  font-weight: bolder;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .developper-info-lang {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 600px;
+    width: 100%;
+    padding: 15px;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 481px) {
+  .developper-info-lang {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+    width: 100%;
+    padding: 15px;
+    gap: 10px;
+  }
+}
+@media (min-width: 1164px) {
+  .developper-info-lang {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+    width: 60%;
+    padding: 15px;
+    gap: 10px;
+  }
 }

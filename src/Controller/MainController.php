@@ -23,7 +23,6 @@ class MainController extends AbstractController
         private ProjectRepository $projectRepository,
         private SkillRepository $skillRepository,
         private ExperienceRepository $experienceRepository,
-        private ResumeFilesRepository $resumeFilesRepository,
         private Security $security,
     ) {
         $this->em = $em;
@@ -31,7 +30,6 @@ class MainController extends AbstractController
         $this->projectRepository = $projectRepository;
         $this->skillRepository = $skillRepository;
         $this->experienceRepository = $experienceRepository;
-        $this->resumeFilesRepository = $resumeFilesRepository;
         $this->security = $security;
     }
 
@@ -43,7 +41,6 @@ class MainController extends AbstractController
         $latestUpdatedProject = $this->updateRepository->getLatestUpdateWithDetails()?->getProject();
         $skills = $this->skillRepository->findAll();
         $experiences = $this->experienceRepository->findAll();
-        $resumeFiles = $this->resumeFilesRepository->findAll();
         $loggedInUser = $this->security->getUser();
 
 
@@ -57,7 +54,6 @@ class MainController extends AbstractController
             'loggedInUser' => $loggedInUser,
             'skills' => $skills,
             'experiences' => $experiences,
-            'resumeFiles' => $resumeFiles,
         ]);
     }
 

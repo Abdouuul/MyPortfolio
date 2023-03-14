@@ -8,8 +8,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -33,7 +31,8 @@ class ProjectCrudController extends AbstractCrudController
                 ->setBasePath('uploads/projectsImages')
                 ->setUploadDir('public/uploads/projectImages')
                 ->setFormTypeOption('multiple', true)
-                ->setUploadedFileNamePattern('[slug].[extension]')
+                ->setUploadedFileNamePattern('[slug].[extension]'),
+            DateField::new('createdAt')->hideOnForm(),
 
         ];
     }

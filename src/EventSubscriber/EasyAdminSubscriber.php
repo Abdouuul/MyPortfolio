@@ -10,7 +10,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
@@ -18,11 +17,13 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public function __construct(
         private SluggerInterface $slugger,
         private EntityManagerInterface $em,
-        private ParameterBagInterface $params
+        private ParameterBagInterface $params,
+        private Filesystem $fileSystem
     ) {
         $this->slugger = $slugger;
         $this->em = $em;
         $this->params = $params;
+        $this->fileSystem = $fileSystem;
     }
 
     public static function getSubscribedEvents()
@@ -53,7 +54,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         }
     }
 
-    public function removeImages(BeforeEntityDeletedEvent $event, Filesystem $fileSystem)
+    public function removeImages(BeforeEntityDeletedEvent $event)
     {
         $project = $event->getEntityInstance();
 
@@ -63,7 +64,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
         foreach ($images as $image) {
             if ($image) {
-                $fileSystem->remove($image->getPath());
+                $this->fileSystem->remove($image->getPath());
             }
         }
     }

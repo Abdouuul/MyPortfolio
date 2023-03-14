@@ -2,10 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass=App\Repository\SkillRepository::class)
  * @ORM\Table(name="app_skills")
  */
+
+#[UniqueEntity(fields: ['name'], message: 'There is already a skill with this name')]
 class Skill
 {
     /**
@@ -17,6 +23,7 @@ class Skill
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $name;
 
@@ -29,6 +36,11 @@ class Skill
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * Get the value of id
