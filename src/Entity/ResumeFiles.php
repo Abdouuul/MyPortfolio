@@ -2,15 +2,11 @@
 
 namespace App\Entity;
 
-use App\Entity\Project;
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * @ORM\Entity(repositoryClass=App\Repository\ProjectImagesRepository::class)
- * @ORM\Table(name="app_project_images")
+ * @ORM\Entity(repositoryClass=App\Repository\ResumeFilesRepository::class)
+ * @ORM\Table(name="app_files")
  */
-
-class ProjectImages
+class ResumeFiles
 {
     /**
      * @ORM\Id
@@ -25,23 +21,20 @@ class ProjectImages
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="images")
-     */
-    private $project;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
+    
+
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime();   
     }
 
     /**
      * Get the value of id
-     */
+     */ 
     public function getId(): ?int
     {
         return $this->id;
@@ -51,7 +44,7 @@ class ProjectImages
      * Set the value of id
      *
      * @return  self
-     */
+     */ 
     public function setId(?int $id)
     {
         $this->id = $id;
@@ -60,18 +53,18 @@ class ProjectImages
     }
 
     /**
-     * Get the value of link
-     */
+     * Get the value of path
+     */ 
     public function getPath(): ?string
     {
         return $this->path;
     }
 
     /**
-     * Set the value of link
+     * Set the value of path
      *
      * @return  self
-     */
+     */ 
     public function setPath(?string $path)
     {
         $this->path = $path;
@@ -80,33 +73,8 @@ class ProjectImages
     }
 
     /**
-     * Get the value of project
-     */
-    public function getProject(): ?Project
-    {
-        return $this->project;
-    }
-
-    /**
-     * Set the value of project
-     *
-     * @return  self
-     */
-    public function setProject(Project $project)
-    {
-        $this->project = $project;
-
-        return $this;
-    }
-
-    public function __toString(): string
-    {
-        return $this->path;
-    }
-
-    /**
      * Get the value of createdAt
-     */
+     */ 
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
@@ -116,7 +84,7 @@ class ProjectImages
      * Set the value of createdAt
      *
      * @return  self
-     */
+     */ 
     public function setCreatedAt(\DateTimeInterface $createdAt)
     {
         $this->createdAt = $createdAt;

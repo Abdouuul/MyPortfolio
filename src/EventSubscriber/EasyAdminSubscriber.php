@@ -5,9 +5,11 @@ namespace App\EventSubscriber;
 use App\Entity\Project;
 use App\Entity\ProjectImages;
 use Doctrine\ORM\EntityManagerInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityDeletedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -27,6 +29,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         return [
             BeforeEntityPersistedEvent::class => ['addImages'],
+            BeforeEntityDeletedEvent::class => ['removeImages'],
         ];
     }
 
@@ -46,6 +49,21 @@ class EasyAdminSubscriber implements EventSubscriberInterface
                     ->setPath($path)
                     ->setProject($project);
                 $this->em->persist($image);
+            }
+        }
+    }
+
+    public function removeImages(BeforeEntityDeletedEvent $event, Filesystem $fileSystem)
+    {
+        $project = $event->getEntityInstance();
+
+        if (!$project instanceof Project) return;
+
+        $images = $project->getImages();
+
+        foreach ($images as $image) {
+            if ($image) {
+                $fileSystem->remove($image->getPath());
             }
         }
     }

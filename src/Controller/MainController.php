@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\ResumeFiles;
+use App\Repository\ExperienceRepository;
 use App\Repository\ProjectRepository;
+use App\Repository\ResumeFilesRepository;
+use App\Repository\SkillRepository;
 use App\Repository\UpdateRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,11 +21,17 @@ class MainController extends AbstractController
         private EntityManagerInterface $em,
         private UpdateRepository $updateRepository,
         private ProjectRepository $projectRepository,
+        private SkillRepository $skillRepository,
+        private ExperienceRepository $experienceRepository,
+        private ResumeFilesRepository $resumeFilesRepository,
         private Security $security,
     ) {
         $this->em = $em;
         $this->updateRepository = $updateRepository;
         $this->projectRepository = $projectRepository;
+        $this->skillRepository = $skillRepository;
+        $this->experienceRepository = $experienceRepository;
+        $this->resumeFilesRepository = $resumeFilesRepository;
         $this->security = $security;
     }
 
@@ -31,6 +41,9 @@ class MainController extends AbstractController
         $recentUpdates = $this->updateRepository->getLatestUpdatesWithAllDetails();
         $recentProjects = $this->projectRepository->getAllRecentProjects();
         $latestUpdatedProject = $this->updateRepository->getLatestUpdateWithDetails()?->getProject();
+        $skills = $this->skillRepository->findAll();
+        $experiences = $this->experienceRepository->findAll();
+        $resumeFiles = $this->resumeFilesRepository->findAll();
         $loggedInUser = $this->security->getUser();
 
 
@@ -42,6 +55,9 @@ class MainController extends AbstractController
             'recentProjects' => $recentProjects,
             'latestUpdatedProject' => $latestUpdatedProject,
             'loggedInUser' => $loggedInUser,
+            'skills' => $skills,
+            'experiences' => $experiences,
+            'resumeFiles' => $resumeFiles,
         ]);
     }
 
@@ -51,7 +67,7 @@ class MainController extends AbstractController
         return $this->render('main/about.html.twig', [
             'current_route' => 'about_page',
             'controller_name' => 'mainController',
-            'loggedInUser' => null
+            'loggedInUser' => null,
         ]);
     }
 }
