@@ -7,7 +7,7 @@
 	<div class="app-recent-projects-container">
 		{% if latestUpdatedProject %}
 			<div class="recent-updated-project-card">
-				<div class="project-card">
+				<div class="recent-project-card">
 					<div class="project-card-image">
 						{% for image in latestUpdatedProject.images %}
 							{% if loop.first %}
@@ -33,7 +33,7 @@
 
 		<div class="recent-projects-container">
 			{% for project in recentProjects %}
-				<div class="project-card">
+				<div class="recent-project-card">
 					<div class="project-card-image">
 						{% for image in project.images %}
 							{% if loop.first %}

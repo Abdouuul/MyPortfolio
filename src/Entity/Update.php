@@ -33,7 +33,7 @@ class Update
     private $description;
 
     /**
-     * @ORM\Column(type="string", enumType=Types::class)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Please chose an update type")
      */
     private $type;
@@ -116,11 +116,8 @@ class Update
     /**
      * Get the value of type
      */
-    public function getType(): ?String
+    public function getType(): ?string
     {
-        if ($this->type) {
-            return $this->type->toString();
-        }
         return $this->type;
     }
 
@@ -129,7 +126,7 @@ class Update
      *
      * @return  self
      */
-    public function setType(?Types $type)
+    public function setType(?string $type)
     {
         $this->type = $type;
 

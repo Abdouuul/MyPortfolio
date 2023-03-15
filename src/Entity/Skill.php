@@ -2,15 +2,17 @@
 
 namespace App\Entity;
 
-use App\Entity\Project;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=App\Repository\ProjectImagesRepository::class)
- * @ORM\Table(name="app_project_images")
+ * @ORM\Entity(repositoryClass=App\Repository\SkillRepository::class)
+ * @ORM\Table(name="app_skills")
  */
 
-class ProjectImages
+#[UniqueEntity(fields: ['name'], message: 'There is already a skill with this name')]
+class Skill
 {
     /**
      * @ORM\Id
@@ -21,13 +23,14 @@ class ProjectImages
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
-    private $path;
+    private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="images")
+     * @ORM\Column(type="string", length=255)
      */
-    private $project;
+    private $iconLink;
 
     /**
      * @ORM\Column(type="datetime")
@@ -60,48 +63,43 @@ class ProjectImages
     }
 
     /**
-     * Get the value of link
+     * Get the value of name
      */
-    public function getPath(): ?string
+    public function getName(): ?string
     {
-        return $this->path;
+        return ucfirst($this->name);
     }
 
     /**
-     * Set the value of link
+     * Set the value of name
      *
      * @return  self
      */
-    public function setPath(?string $path)
+    public function setName(?string $name)
     {
-        $this->path = $path;
+        $this->name = ucfirst($name);
 
         return $this;
     }
 
     /**
-     * Get the value of project
+     * Get the value of iconLink
      */
-    public function getProject(): ?Project
+    public function getIconLink(): ?string
     {
-        return $this->project;
+        return $this->iconLink;
     }
 
     /**
-     * Set the value of project
+     * Set the value of iconLink
      *
      * @return  self
      */
-    public function setProject(Project $project)
+    public function setIconLink(?string $iconLink)
     {
-        $this->project = $project;
+        $this->iconLink = $iconLink;
 
         return $this;
-    }
-
-    public function __toString(): string
-    {
-        return $this->path;
     }
 
     /**

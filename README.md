@@ -18,4 +18,4 @@ This is a personal project where I can display the different projects I'm workin
 
 ---
 
-The website will be hosted on a server soon
+The website is now hosted on Hostinger. [My Website](https://abdoulalimidlbi.site/)
