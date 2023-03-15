@@ -2,10 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\ResumeFiles;
 use App\Repository\ExperienceRepository;
 use App\Repository\ProjectRepository;
-use App\Repository\ResumeFilesRepository;
 use App\Repository\SkillRepository;
 use App\Repository\UpdateRepository;
 use Doctrine\ORM\EntityManagerInterface;

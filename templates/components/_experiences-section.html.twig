@@ -1,0 +1,26 @@
+<div class="app-intro-section-experience">
+	{% for experience in experiences %}
+		<div class="experience-card">
+			<div class="experience-date">
+				<i class="fa fa-calendar"></i>
+				{{ experience.startDate|date('m/y')}}
+			</br>
+			<i class="fa fa-caret-down"></i>
+		</br>
+		<i class="fa fa-calendar"></i>
+		{{ experience.endDate|date('m/y') }}</div>
+
+	<div class="experience-details">
+		<div class="experience-details-row">
+			<div class="experience-company-image">
+				<img src="{{ experience.image }}" alt="company-logo">
+			</div>
+			<div class="experience-company-name">
+				<div>
+					{{ experience.company }}
+				</div>
+			</div>
+		</div>
+		<div class="experience-position-detail">{{ experience.position }}</div>
+	</div>
+</div>{% endfor %}</div>

@@ -12478,18 +12478,7 @@ th {
 @media (max-width: 1163px) {
   .app-intro-section {
     min-height: 300px;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px lightgray;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .app-intro-section {
-    min-height: 300px;
+    max-height: 500px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px lightgray;
     display: flex;
@@ -12502,12 +12491,31 @@ th {
 @media (min-width: 1164px) {
   .app-intro-section {
     min-height: 300px;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: hidden;
     border-radius: 5px;
     box-shadow: 5px 5px 10px lightgray;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+  }
+}
+@media (max-width: 480px) {
+  .app-intro-section {
+    min-height: 300px;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -12660,4 +12668,85 @@ th {
     padding: 15px;
     gap: 10px;
   }
+}
+
+.app-intro-section-experience {
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 481px) {
+  .experience-card {
+    width: 400px;
+    margin: 15px 5px 15px 5px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    box-shadow: 5px 5px 10px lightgray;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-card {
+    max-width: 400px;
+    margin: 15px 5px 15px 5px;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 5px 5px 10px lightgray;
+  }
+}
+
+.experience-date {
+  width: 100px;
+  padding-right: 5px;
+  border-right: 0.1em solid lightcoral;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+}
+
+.experience-details-row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 200px;
+}
+
+.experience-company-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.experience-position-detail {
+  padding-top: 10px;
+  font-weight: 500;
+  font-size: medium;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+.experience-company-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding-right: 10px;
+}
+
+.experience-company-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
 }
