@@ -12330,10 +12330,9 @@ th {
 }
 
 .main-app-home-layout {
-  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 15px;
 }
 
@@ -12343,7 +12342,11 @@ th {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.app-recentprojects-section {
+  margin-bottom: 10px;
 }
 
 .project-update-indicator {
@@ -12470,8 +12473,8 @@ th {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 100vh;
   padding: 10px;
-  height: auto;
   gap: 15px;
 }
 
@@ -12601,9 +12604,9 @@ th {
 .about-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  min-height: 100vh;
 }
 
 .error {
@@ -12676,6 +12679,8 @@ th {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 @media (min-width: 481px) {
