@@ -33,6 +33,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
             BeforeEntityPersistedEvent::class => ['addImages'],
             BeforeEntityUpdatedEvent::class => ['addImages'],
             BeforeEntityDeletedEvent::class => ['removeImages'],
+            BeforeEntityDeletedEvent::class => ['removeImage'],
         ];
     }
 
@@ -69,5 +70,14 @@ class EasyAdminSubscriber implements EventSubscriberInterface
                 $this->fileSystem->remove($image->getPath());
             }
         }
+    }
+
+    public function removeImage(BeforeEntityDeletedEvent $event)
+    {
+        $image = $event->getEntityInstance();
+
+        if (!$image instanceof ProjectImages) return;
+
+        $this->fileSystem->remove($image->getPath());
     }
 }

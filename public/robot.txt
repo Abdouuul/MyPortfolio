@@ -1,6 +1,9 @@
 User-agent: Googlebot
-Disallow: /nogooglebot/
+Allow: /
+Disallow: /admin
 
 User-agent: *
 Allow: /
 Disallow: /admin
+
+Sitemap: https://www.abdoulalimidlbi.site/sitemap.xml
