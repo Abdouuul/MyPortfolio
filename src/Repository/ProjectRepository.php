@@ -36,7 +36,7 @@ class ProjectRepository extends ServiceEntityRepository
     {
         $qb = $this
             ->createQueryBuilder('p')
-            ->orderBy('p.createdAt', 'DESC')
+            ->orderBy('p.startDate', 'DESC')
             ->setMaxResults(3);
         $this->addImages($qb);
         return $qb->getQuery()->getResult();

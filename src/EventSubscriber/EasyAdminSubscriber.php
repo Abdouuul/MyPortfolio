@@ -7,6 +7,7 @@ use App\Entity\ProjectImages;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityDeletedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Filesystem\Filesystem;
@@ -30,11 +31,13 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         return [
             BeforeEntityPersistedEvent::class => ['addImages'],
+            BeforeEntityUpdatedEvent::class => ['addImages'],
             BeforeEntityDeletedEvent::class => ['removeImages'],
+            BeforeEntityDeletedEvent::class => ['removeImage'],
         ];
     }
 
-    public function addImages(BeforeEntityPersistedEvent $event)
+    public function addImages(BeforeEntityPersistedEvent|BeforeEntityUpdatedEvent $event)
     {
         $project = $event->getEntityInstance();
 
@@ -67,5 +70,14 @@ class EasyAdminSubscriber implements EventSubscriberInterface
                 $this->fileSystem->remove($image->getPath());
             }
         }
+    }
+
+    public function removeImage(BeforeEntityDeletedEvent $event)
+    {
+        $image = $event->getEntityInstance();
+
+        if (!$image instanceof ProjectImages) return;
+
+        $this->fileSystem->remove($image->getPath());
     }
 }
