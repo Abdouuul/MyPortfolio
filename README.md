@@ -4,7 +4,7 @@ This is a personal project where I can display the different projects I'm workin
 
 ## Details:
 
-- Php 8.1
+- Php 8.1 ( The host doesn't support Php 8.2 )
 - Symfony 6.2
 - PhpMyAdmin Database
 
@@ -18,4 +18,4 @@ This is a personal project where I can display the different projects I'm workin
 
 ---
 
-The website will be hosted on a server soon
+The website is now hosted on Hostinger. [My Website](https://abdoulalimidlbi.site/)

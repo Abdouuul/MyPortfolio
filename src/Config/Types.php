@@ -2,6 +2,8 @@
 
 namespace App\Config;
 
+// This class is using php 8.2 which is very recent 
+// Webhosting service that im using doesn't support it yet unfortunately
 enum Types: string
 {
     case Feature = "Feature";

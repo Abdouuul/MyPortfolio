@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Experience;
 use App\Entity\Project;
+use App\Entity\ProjectImages;
+use App\Entity\Skill;
 use App\Entity\Update;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -24,12 +27,12 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        
+
         $url = $this->adminUrlGenerator
             ->setController(ProjectCrudController::class)
             ->generateUrl();
 
-        return $this->redirect($url);        
+        return $this->redirect($url);
     }
 
     public function configureDashboard(): Dashboard
@@ -43,9 +46,10 @@ class DashboardController extends AbstractDashboardController
         // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Users', 'fa fa-person', User::class);
         yield MenuItem::linkToCrud('Projects', 'fa fa-laptop', Project::class);
+        yield MenuItem::linkToCrud('Projects Images', 'fa fa-image', ProjectImages::class);
         yield MenuItem::linkToCrud('Updates', 'fa fa-refresh', Update::class);
-
-
+        yield MenuItem::linkToCrud('Skills', 'fa fa-cogs', Skill::class);
+        yield MenuItem::linkToCrud('Experiences', 'fa fa-book', Experience::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

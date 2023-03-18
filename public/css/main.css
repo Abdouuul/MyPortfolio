@@ -12330,10 +12330,9 @@ th {
 }
 
 .main-app-home-layout {
-  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 15px;
 }
 
@@ -12343,15 +12342,11 @@ th {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
-.project-card {
-  width: 300px;
-  height: 350px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px lightgray;
-  background-color: var(--light);
-  position: relative;
+
+.app-recentprojects-section {
+  margin-bottom: 10px;
 }
 
 .project-update-indicator {
@@ -12396,8 +12391,16 @@ th {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 5px;
-  width: 630px;
+  gap: 10px;
+}
+
+.project-card {
+  width: 300px;
+  height: 350px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  background-color: var(--light);
+  position: relative;
 }
 
 .project-card-button {
@@ -12411,6 +12414,23 @@ th {
   justify-content: center;
 }
 
+.recent-project-card {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  background-color: var(--light);
+  position: relative;
+}
+
+.project-card-image img {
+  position: absolute;
+  border-radius: 5px;
+  object-fit: cover;
+  filter: blur(1px);
+  width: 100%;
+  height: 100%;
+}
 .project-card-button a {
   padding: 5px;
   min-height: 30px;
@@ -12448,33 +12468,58 @@ th {
   text-align: center;
 }
 
-.project-card-image img {
-  position: absolute;
-  border-radius: 5px;
-  object-fit: cover;
-  filter: blur(1px);
-  width: 100%;
-  height: 100%;
-}
-
 .projects-page-main {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
   padding: 10px;
-  height: auto;
   gap: 15px;
 }
 
-.app-intro-section {
-  min-height: 300px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px lightgray;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+@media (max-width: 1163px) {
+  .app-intro-section {
+    min-height: 300px;
+    max-height: 500px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1164px) {
+  .app-intro-section {
+    min-height: 300px;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 480px) {
+  .app-intro-section {
+    min-height: 300px;
+    max-height: 500px;
+    overflow: scroll;
+    overflow-y: visible;
+    overflow-x: hidden;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px lightgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .developper-info-section {
@@ -12500,12 +12545,14 @@ th {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 
 .developper-info {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 300px;
   gap: 10px;
 }
 
@@ -12557,11 +12604,154 @@ th {
 .about-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  min-height: 100vh;
 }
 
 .error {
   color: red;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.skill-image {
+  max-width: 60px;
+  border-radius: 10px;
+}
+
+.skill-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.skill-name {
+  font-size: medium;
+  font-weight: bolder;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .developper-info-lang {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 600px;
+    width: 100%;
+    padding: 15px;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 481px) {
+  .developper-info-lang {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+    width: 100%;
+    padding: 15px;
+    gap: 10px;
+  }
+}
+@media (min-width: 1164px) {
+  .developper-info-lang {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+    width: 60%;
+    padding: 15px;
+    gap: 10px;
+  }
+}
+
+.app-intro-section-experience {
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px lightgray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 481px) {
+  .experience-card {
+    width: 400px;
+    margin: 15px 5px 15px 5px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    box-shadow: 5px 5px 10px lightgray;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-card {
+    max-width: 400px;
+    margin: 15px 5px 15px 5px;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 5px 5px 10px lightgray;
+  }
+}
+
+.experience-date {
+  width: 100px;
+  padding-right: 5px;
+  border-right: 0.1em solid lightcoral;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+}
+
+.experience-details-row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 200px;
+}
+
+.experience-company-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.experience-position-detail {
+  padding-top: 10px;
+  font-weight: 500;
+  font-size: medium;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+}
+.experience-company-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  padding-right: 10px;
+}
+
+.experience-company-image img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
 }
