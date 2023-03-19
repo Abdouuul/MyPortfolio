@@ -33,63 +33,50 @@ class EasyAdminSubscriber implements EventSubscriberInterface
             BeforeEntityPersistedEvent::class => ['addImages'],
             BeforeEntityUpdatedEvent::class => ['addImages'],
             BeforeEntityDeletedEvent::class => ['removeImages'],
-            BeforeEntityDeletedEvent::class => ['removeImage'],
-            BeforeEntityPersistedEvent::class => ['addImage'],
-            BeforeEntityUpdatedEvent::class => ['addImage'],
         ];
     }
 
     public function addImages(BeforeEntityPersistedEvent|BeforeEntityUpdatedEvent $event)
     {
-        $project = $event->getEntityInstance();
+        $entity = $event->getEntityInstance();
 
-        if (!$project instanceof Project) return;
+        if ($entity instanceof Project){
 
-        $uploadedFiles = $project->getUploadedFiles();
-        if ($uploadedFiles) {
-            foreach ($uploadedFiles as $uploadedFile) {
-                $image = new ProjectImages();
-
-                $path = 'uploads/projectImages/' . $uploadedFile;
-                $image
-                    ->setPath($path)
-                    ->setProject($project);
-                $this->em->persist($image);
+            $uploadedFiles = $entity->getUploadedFiles();
+            if ($uploadedFiles) {
+                foreach ($uploadedFiles as $uploadedFile) {
+                    $image = new ProjectImages();
+    
+                    $path = 'uploads/projectImages/' . $uploadedFile;
+                    $image
+                        ->setPath($path)
+                        ->setProject($entity);
+                    $this->em->persist($image);
+                }
             }
+        } elseif ($entity instanceof ProjectImages) {
+            $path = 'uploads/projectImages/' . $entity->getUploadedFile();
+            $entity->setPath($path);
         }
+
     }
 
     public function removeImages(BeforeEntityDeletedEvent $event)
     {
-        $project = $event->getEntityInstance();
+        $entity = $event->getEntityInstance();
 
-        if (!$project instanceof Project) return;
+        if ($entity instanceof Project){
 
-        $images = $project->getImages();
-
-        foreach ($images as $image) {
-            if ($image) {
-                $this->fileSystem->remove($image->getPath());
+            $images = $entity->getImages();
+    
+            foreach ($images as $image) {
+                if ($image) {
+                    $this->fileSystem->remove($image->getPath());
+                }
             }
+        } elseif ($entity instanceof ProjectImages){
+            $this->fileSystem->remove($entity->getPath());
         }
-    }
 
-    public function removeImage(BeforeEntityDeletedEvent $event)
-    {
-        $image = $event->getEntityInstance();
-
-        if (!$image instanceof ProjectImages) return;
-
-        $this->fileSystem->remove($image->getPath());
-    }
-
-    public function addImage(BeforeEntityPersistedEvent|BeforeEntityUpdatedEvent $event)
-    {
-        $image = $event->getEntityInstance();
-
-        if (!$image instanceof ProjectImages) return;
-
-        $path = 'uploads/projectImages/' . $image->getUploadedFile();
-        $image->setPath($path);
     }
 }
