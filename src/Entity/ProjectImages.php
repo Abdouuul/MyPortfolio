@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\Project;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass=App\Repository\ProjectImagesRepository::class)
@@ -28,6 +29,8 @@ class ProjectImages
      * @ORM\ManyToOne(targetEntity=Project::class, inversedBy="images")
      */
     private $project;
+
+    private $uploadedFile;
 
     /**
      * @ORM\Column(type="datetime")
@@ -123,4 +126,24 @@ class ProjectImages
 
         return $this;
     }
+
+    /**
+     * Get the value of uploadedFiles
+     */ 
+    public function getUploadedFile(): ?string
+    {
+        return $this->uploadedFile;
+    }
+    
+    /**
+     * Set the value of uploadedFiles
+     *
+     * @return  self
+     */ 
+    public function setUploadedFile(?string $uploadedFile)
+    {
+        $this->uploadedFile = $uploadedFile;
+
+        return $this;
+    }  
 }

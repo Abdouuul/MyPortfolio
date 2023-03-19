@@ -20,10 +20,16 @@ class ProjectImagesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('path'),
+            IdField::new('id')->onlyOnIndex(),
+            TextField::new('path')->onlyOnIndex(),
             ImageField::new('path')->onlyOnIndex(),
-            AssociationField::new('project')->hideOnForm(),
+            AssociationField::new('project'),
+            ImageField::new('uploadedFile', 'Add Images')
+                ->hideOnIndex()
+                ->setBasePath('uploads/projectsImages')
+                ->setUploadDir('public/uploads/projectImages')
+                ->setFormTypeOption('multiple', false)
+                ->setUploadedFileNamePattern('[slug].[extension]'),
         ];
     }
 }

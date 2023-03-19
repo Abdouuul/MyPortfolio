@@ -19,4 +19,12 @@ class ExperienceRepository extends ServiceEntityRepository
     {
         parent::__construct($managerRegistry, Experience::class);
     }
+
+    public function getAllExperiencesInOrder(): ?array
+    {
+        $qb = $this
+            ->createQueryBuilder('e')
+            ->orderBy('e.startDate', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
 }

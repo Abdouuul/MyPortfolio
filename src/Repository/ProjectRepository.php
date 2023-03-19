@@ -65,6 +65,7 @@ class ProjectRepository extends ServiceEntityRepository
     {
         $qb
             ->addSelect('im')
+            ->orderBy('im.createdAt', 'ASC')
             ->leftJoin('p.images', 'im');
     }
 }

@@ -37,8 +37,8 @@ class MainController extends AbstractController
         $recentUpdates = $this->updateRepository->getLatestUpdatesWithAllDetails();
         $recentProjects = $this->projectRepository->getAllRecentProjects();
         $latestUpdatedProject = $this->updateRepository->getLatestUpdateWithDetails()?->getProject();
+        $experiences = $this->experienceRepository->getAllExperiencesInOrder();
         $skills = $this->skillRepository->findAll();
-        $experiences = $this->experienceRepository->findAll();
         $loggedInUser = $this->security->getUser();
 
 
