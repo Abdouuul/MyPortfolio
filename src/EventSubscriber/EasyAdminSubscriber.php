@@ -47,7 +47,6 @@ class EasyAdminSubscriber implements EventSubscriberInterface
             if ($uploadedFiles) {
                 foreach ($uploadedFiles as $uploadedFile) {
                     $image = new ProjectImages();
-
                     $path = 'uploads/projectImages/' . $uploadedFile;
                     $image
                         ->setPath($path)
@@ -59,6 +58,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
             $path = 'uploads/projectImages/' . $entity->getUploadedFile();
             $entity->setPath($path);
         }
+
     }
 
     public function removeImages(BeforeEntityDeletedEvent $event)
