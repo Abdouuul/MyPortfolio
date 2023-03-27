@@ -32,7 +32,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         return [
             BeforeEntityPersistedEvent::class => ['addImages'],
             BeforeEntityUpdatedEvent::class => ['addImages'],
-            BeforeEntityDeletedEvent::class => ['removeImages'],
+            BeforeEntityDeletedEvent::class => ['removeImages'],           
         ];
     }
 
@@ -40,13 +40,13 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if ($entity instanceof Project){
+
+        if ($entity instanceof Project) {
 
             $uploadedFiles = $entity->getUploadedFiles();
             if ($uploadedFiles) {
                 foreach ($uploadedFiles as $uploadedFile) {
                     $image = new ProjectImages();
-    
                     $path = 'uploads/projectImages/' . $uploadedFile;
                     $image
                         ->setPath($path)
@@ -65,18 +65,16 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if ($entity instanceof Project){
-
+        if ($entity instanceof Project) {
             $images = $entity->getImages();
-    
+
             foreach ($images as $image) {
                 if ($image) {
                     $this->fileSystem->remove($image->getPath());
                 }
             }
-        } elseif ($entity instanceof ProjectImages){
+        } elseif ($entity instanceof ProjectImages) {
             $this->fileSystem->remove($entity->getPath());
         }
-
     }
 }
