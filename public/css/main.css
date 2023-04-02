@@ -12370,6 +12370,23 @@ th {
   height: auto;
 }
 
+.recent-projects-buttons-section {
+  margin-bottom: 10px;
+}
+
+.all-projects-btn {
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #007bff;
+  padding: 5px;
+}
+
+.all-projects-btn:hover{
+  text-decoration: none;
+  color: white;
+}
+
 .update-header-indecators {
   display: flex;
   justify-content: space-evenly;
