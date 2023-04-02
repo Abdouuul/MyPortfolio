@@ -13,7 +13,7 @@
 
 		<div class="app-recent-projects-container">
 			{% if latestUpdatedProject %}
-				<div class="recent-updated-project-card">
+				<a class="recent-updated-project-card" href="{{ path('projects_details_page', { 'id': latestUpdatedProject.id }) }}" >
 					<div class="recent-project-card">
 						<div class="project-card-image">
 							{% for image in latestUpdatedProject.images %}
@@ -22,12 +22,7 @@
 								{% endif %}
 							{% endfor %}
 						</div>
-						<div class="project-card-button">
-							<div class="project-card-button-row">
-								<a href="{{ path('projects_details_page', { 'id': latestUpdatedProject.id }) }}">
-									{{ latestUpdatedProject.name | upper }}
-								</a>
-							</div>
+						<div class="project-card-button">							
 							<div class="project-card-button-row">
 								<div class="recently-update-indicator">
 									Recently Updated
@@ -35,27 +30,20 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</a>
 			{% endif %}
 
 			<div class="recent-projects-container">
 				{% for project in recentProjects %}
-					<div class="recent-project-card">
-						<div class="project-card-image">
+					<a class="recent-project-card" href="{{ path('projects_details_page', { 'id': project.id }) }}">
+						<div class="project-card-image" >
 							{% for image in project.images %}
 								{% if loop.first %}
 									<img src="{{ asset( image.path ) }}" alt="project{{project.id}}-img">
 								{% endif %}
 							{% endfor %}
 						</div>
-						<div class="project-card-button">
-							<div class="project-card-button-row">
-								<a href="{{ path('projects_details_page', { 'id': project.id }) }}" class="">
-									{{ project.name|upper }}
-								</a>
-							</div>
-						</div>
-					</div>
+					</a>
 				{% endfor %}
 			</div>
 		</div>

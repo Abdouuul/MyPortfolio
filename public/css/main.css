@@ -12382,7 +12382,7 @@ th {
   padding: 5px;
 }
 
-.all-projects-btn:hover{
+.all-projects-btn:hover {
   text-decoration: none;
   color: white;
 }
@@ -12428,7 +12428,7 @@ th {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
 }
 
 .recent-project-card {
@@ -12438,13 +12438,19 @@ th {
   box-shadow: 5px 5px 10px lightgray;
   background-color: var(--light);
   position: relative;
+  color: black;
+}
+
+.recent-project-card:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .project-card-image img {
   position: absolute;
   border-radius: 5px;
   object-fit: cover;
-  filter: blur(1px);
   width: 100%;
   height: 100%;
 }
@@ -12477,6 +12483,7 @@ th {
 .recently-update-indicator {
   font-size: smaller;
   font-weight: bold;
+  color: black;
   background-color: lightcoral;
   border-radius: 5px;
   min-height: 10px;
@@ -12577,6 +12584,8 @@ th {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .dev-name {
@@ -12587,7 +12596,10 @@ th {
 .resume-button {
   color: black;
   box-shadow: 5px 5px 10px lightgray;
-  background-color: #298fc2;
+  background-color: #007bff;
+}
+.resume-button:hover{
+  color: black;
 }
 
 .dev-info-section-name {
@@ -12771,4 +12783,16 @@ th {
   height: 50px;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.links-row a {
+  text-decoration: none;
+  color: white;
+}
+
+.social-link {
+  font-weight: bold;
+  background-color: #007bff;
+  padding: 4px;
+  border-radius: 5px;
 }
